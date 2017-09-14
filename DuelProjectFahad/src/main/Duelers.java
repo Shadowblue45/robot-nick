@@ -6,7 +6,7 @@ public class Duelers {
 }
 
 
-public interface Duelers {
+public interface Dueler {
 
 	
 	//print a taunt
