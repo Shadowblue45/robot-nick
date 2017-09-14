@@ -1,17 +1,12 @@
-package duel;
+package main;
 
-public class Dueler {
+public class Duelers {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
 
-package main;
 
-public interface Dueler {
+public interface Duelers {
 
 	
 	//print a taunt
