@@ -1,6 +1,6 @@
 package duel;
 
-public class Robot {
+public class Dueler {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -9,7 +9,7 @@ public class Robot {
 
 }
 
-package duel;
+package main;
 
 public interface Dueler {
 
