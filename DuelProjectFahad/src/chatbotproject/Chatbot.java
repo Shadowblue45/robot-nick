@@ -4,11 +4,15 @@ public class Chatbot {
 
 		private String userName;
 		private Topic fahad;
+		private Topic tyler;
+		private Topic david;
 		private boolean chatting;
 		
 		
 		public Chatbot() {
 			fahad = new ChatbotFahad();
+			david = new ChatbotDavid();
+			tyler = new ChatbotTyler();
 			userName = "unknown user";
 		}
 		
