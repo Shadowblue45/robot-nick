@@ -8,15 +8,19 @@ public class ChatbotDavid implements Topic {
 	private boolean chatting;
 	
 	public ChatbotDavid() {
-		String[] temp = {"Mobas","moba","mobas","Moba",""};
-		keywords = temp;
+		String[] temp = {"Mobas","moba","mobas","Moba"};
+		mobas = temp;
+		String[] temp = {"sandbox","sand-box"};
+		sandboxes = temp;
 		goodbyeWord = "bye";
 		secretWord = "wuh?";
 	}
 
 	public boolean isTriggered(String response) {
-		for(int i = 0; i < keywords.length;i++) {
-			if(ChatbotMain.findKeyword(response, keywords[i], 0) >= 0) {
+		for(int i = 0; i < mobas.length;i++) {
+			if(ChatbotMain.findKeyword(response, mobas[i], 0) >= 0) {
+				return true;
+			if(ChatbotMain.findKeyword(response, sandboxes[i], 0) >= 0) {
 				return true;
 			}
 		}
@@ -24,7 +28,12 @@ public class ChatbotDavid implements Topic {
 	}
 
 	public void startChatting(String response) {
-		ChatbotMain.print("Hey! It sounds like you and I have a common interest! Let's talk some more!");
+		if(ChatbotMain.findKeyword(response, mobas[i], 0) >= 0) {
+			ChatbotMain.print("What Moba do you like?");
+		if(ChatbotMain.findKeyword(response, sandboxes[i], 0) >= 0) {
+			ChatbotMain.print("What sandbox you like?");
+		}
+		ChatbotMain.print("");
 		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
