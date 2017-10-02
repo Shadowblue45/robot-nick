@@ -27,7 +27,7 @@ public class ChatbotTyler implements Topic {
 	
 	
 	public void startChatting(String response) {
-		ChatbotMain.print("Suh dude! It sounds like we have something in common!");
+		ChatbotMain.print("Suh dude! I'm a fan of that game genre as well!");
 		chatting = true;
 		while (chatting) {
 			 response = ChatbotMain.getInput();
