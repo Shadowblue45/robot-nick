@@ -5,6 +5,8 @@ public class ChatbotFahad implements Topic {
 	private String[] keywords;
 	private String goodbyeWords;
 	private String secretWord;
+	private String[] fighting = {"Guilty Gear", "King of Fighters", "Skull Girls", "Mortal Kombat", "Injustice"};
+	private String[] rolePlay = {"The Witcher", "Skyrim", "Devil May Cry", "Pokemon","Just Cause"};
 	public boolean chatting;
 
 	public ChatbotFahad() {
@@ -39,7 +41,7 @@ public class ChatbotFahad implements Topic {
 				ChatbotMain.print("Oh my goodness! you guessed my favorite thing ever!");
 			}
 			else {
-				ChatbotMain.print("Huh. I don't really get you.");
+				ChatbotMain.print("Nani did you say to watashi?");
 			}
 		}
 	}
