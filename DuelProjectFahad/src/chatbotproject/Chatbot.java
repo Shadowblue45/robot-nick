@@ -28,8 +28,8 @@ public class Chatbot {
 					fahad.startChatting(response);
 				}
 				else if(david.isTriggered(response)) {
-						chatting = false;
-						david.startChatting(response);
+					chatting = false;
+					david.startChatting(response);
 				}
 				else if(tyler.isTriggered(response)) {
 					chatting = false;
