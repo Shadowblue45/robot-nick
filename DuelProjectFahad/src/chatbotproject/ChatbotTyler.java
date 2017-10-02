@@ -26,7 +26,10 @@ public class ChatbotTyler implements Topic {
 	
 	
 	public void startChatting(String response) {
-		ChatbotMain.print("Suh dude! I'm a fan of that game genre as well!");
+		ChatbotMain.print("I too like shooters, is there any particular shooter game you're a big fan of?");
+		
+		/* 	ChatbotMain.print("I too like platformers, is there any particular platformer game you're a big fan of?");
+		*/
 		chatting = true;
 		while (chatting) {
 			 response = ChatbotMain.getInput();
