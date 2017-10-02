@@ -4,8 +4,8 @@ public class ChatbotTyler implements Topic {
 	private String[] keywords;
 	private String goodbyewords;
 	private String secretWord;
-	private String[] shooters = {"Doom", "Quake", "Call of Duty", "Halo", "Gears of War"};
-	private String[] platformers = {"Super Mario Bros","Sonic the Hedgehog", "Rayman", "Super Meat Boy", "Cuphead"};
+	private String[] rshooters = {"Doom", "Quake", "Call of Duty", "Halo", "Gears of War"};
+	private String[] rplatformers = {"Super Mario Bros","Sonic the Hedgehog", "Rayman", "Super Meat Boy", "Cuphead","Duck Game"};
 	private boolean chatting; 
 	
 	public ChatbotTyler() {
