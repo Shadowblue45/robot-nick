@@ -11,7 +11,7 @@ public class ChatbotDavid implements Topic {
 		String[] temp = {"King","Obama","Mario","video games"};
 		keywords = temp;
 		goodbyeWord = "bye";
-		secretWord = "banned";
+		secretWord = "wuh?";
 	}
 
 	public boolean isTriggered(String response) {
