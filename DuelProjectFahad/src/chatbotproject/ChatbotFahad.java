@@ -41,7 +41,7 @@ public class ChatbotFahad implements Topic {
 				ChatbotMain.print("Oh my goodness! you guessed my favorite thing ever!");
 			}
 			else {
-				ChatbotMain.print("Huh. I don't really get you.");
+				ChatbotMain.print("Nani did you say to watashi?");
 			}
 		}
 	}
