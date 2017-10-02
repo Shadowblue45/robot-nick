@@ -11,10 +11,7 @@ public class ChatbotTyler implements Topic {
 	private boolean chatting; 
 	
 	public ChatbotTyler() {
-		String[] temp = {"platformer","shooter","fps","third person", "platforming"};
-		keywords = temp;
-		String temp2 = "jeff";
-		goodbyewords = temp2;
+		goodbyewords = "jeff";
 		secretWord = "doge";
 		
 	}
