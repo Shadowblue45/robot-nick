@@ -58,7 +58,7 @@ public class ChatbotMain {
 		  if(psn == 0) {
 			  return true;
 		  }
-		  if(not.equals(s.substring(psn-4,psn-1)) || no.equals(s.substring(psn-3, psn-1))) {
+		  if(psn > 3 && not.equals(s.substring(psn-4,psn-1)) || no.equals(s.substring(psn-3, psn-1))) {
 			  return false;
 		  }
 		  return true;
