@@ -17,11 +17,11 @@ public class Chatbot {
 		}
 		
 		public void startTalking() {
-			ChatbotMain.print("Welcome to our chatbot! What is your name?");
+			ChatbotMain.print("Welcome to Gamebot-nick, the bot dedicated to video games.");
 			userName = ChatbotMain.getInput();
 			chatting = true;
 			while(chatting) {
-				ChatbotMain.print("What do you want to talk about?");
+				ChatbotMain.print("What genre do you want to talk about?");
 				String response = ChatbotMain.getInput();
 				if(fahad.isTriggered(response)) {
 					chatting = false;
