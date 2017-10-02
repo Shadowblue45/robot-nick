@@ -5,12 +5,14 @@ public class ChatbotFahad implements Topic {
 	private String[] keywords;
 	private String goodbyeWords;
 	private String secretWord;
+	private boolean fight = false;
+	private boolean role = false;
 	private String[] fighting = {"Guilty Gear", "King of Fighters", "Skull Girls", "Mortal Kombat", "Injustice"};
 	private String[] rolePlay = {"The Witcher", "Skyrim", "Devil May Cry", "Pokemon","Just Cause"};
 	public boolean chatting;
 
 	public ChatbotFahad() {
-		String[] temp = {"RPG","fighting","fighter","role-play games","role play games"};
+		String[] temp = {"fighting","fighter","RPG","role-play games","role play games"};
 		keywords = temp;
 		String temp2 ="stop";
 		goodbyeWords = temp2;
@@ -21,6 +23,12 @@ public class ChatbotFahad implements Topic {
 	public boolean isTriggered(String response) {
 		for(int i = 0; i < keywords.length;i++) {
 			if(ChatbotMain.findKeyword(response, keywords[i], 0) >=0) {
+				if(i < 2) {
+					fight = true;
+					role = false;
+				}
+				role = true;
+				fight = false;
 				return true;
 			}
 		}
