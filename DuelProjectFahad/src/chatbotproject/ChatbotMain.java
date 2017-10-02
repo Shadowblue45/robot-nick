@@ -84,7 +84,7 @@ public class ChatbotMain {
 			//while the current cut is still less than the line length 
 			//AND there are still words left to add
 			while(currentCut.length()+nextWord.length() < cutoff && s.length() > 0){
-
+    
 				//add the next word
 				currentCut += nextWord;
 
