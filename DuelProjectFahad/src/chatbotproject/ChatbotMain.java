@@ -40,15 +40,15 @@ public class ChatbotMain {
 	}
 	
 	public static boolean keywordIsIsolated(int psn, String keyword, String s){
-		if(s.substring(psn,psn + keyword.length()).equals(keyword)) {
+		if(psn + keyword.length() == s.length())
 			return true;
-		}
-		else if(s.substring(psn,psn + keyword.length() + 1).equals(keyword + " ")) {
+		
+		else if(s.substring(psn + keyword.length()+1).compareTo("a") < 0)
 			return true;
-		}
-		else if(s.substring(psn + keyword.length(),psn + keyword.length() + 1).compareTo("a") < 0) {
+		
+		else if(s.substring(psn + keyword.length() + 1).equals(keyword + " "))
 			return true;
-		}
+		
 		return false;
 	}
 
