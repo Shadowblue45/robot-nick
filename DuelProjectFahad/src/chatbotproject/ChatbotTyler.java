@@ -6,7 +6,7 @@ public class ChatbotTyler implements Topic {
 	private String secretWord;
 	private String[] shooters = {"Doom", "Quake", "Call of Duty", "Halo", "Gears of War"};
 	private String[] platformers = {"Super Mario Bros","Sonic the Hedgehog", "Rayman", "Super Meat Boy", "Cuphead"};
-	private boolean chatting;
+	private boolean chatting; 
 	
 	public ChatbotTyler() {
 		String[] temp = {"","","",""};
