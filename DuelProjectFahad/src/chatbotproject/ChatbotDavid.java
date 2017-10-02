@@ -10,8 +10,8 @@ public class ChatbotDavid implements Topic {
 	public ChatbotDavid() {
 		String[] temp = {"Mobas","moba","mobas","Moba"};
 		mobas = temp;
-		String[] temp = {"sandbox","sand-box"};
-		sandboxes = temp;
+		String[] temp2 = {"sandbox","sand-box"};
+		sandboxes = temp2;
 		goodbyeWord = "bye";
 		secretWord = "wuh?";
 	}
