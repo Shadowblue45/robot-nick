@@ -21,7 +21,7 @@ public class Chatbot {
 			userName = ChatbotMain.getInput();
 			chatting = true;
 			while(chatting) {
-				ChatbotMain.print("What genre do you want to talk about?");
+				ChatbotMain.print("Hello " + userName + ". What genre do you want to talk about?");
 				String response = ChatbotMain.getInput();
 				if(fahad.isTriggered(response)) {
 					chatting = false;
