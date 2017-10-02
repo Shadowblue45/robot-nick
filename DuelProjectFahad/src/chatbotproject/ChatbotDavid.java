@@ -35,7 +35,7 @@ public class ChatbotDavid implements Topic {
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
 				ChatbotMain.print("I'm just as confused?");
 			} else {
-				ChatbotMain.print("Wuh? Didn't understand you.");
+				ChatbotMain.print("Wuh? Repeat please.");
 			}
 		}
 	}
