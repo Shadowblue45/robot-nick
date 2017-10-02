@@ -26,7 +26,14 @@ public class Chatbot {
 				if(fahad.isTriggered(response)) {
 					chatting = false;
 					fahad.startChatting(response);
-		
+				}
+				else if(david.isTriggered(response)) {
+						chatting = false;
+						david.startChatting(response);
+				}
+				else if(tyler.isTriggered(response)) {
+					chatting = false;
+					tyler.startChatting(response);
 				}
 				else {
 					ChatbotMain.print("I'm sorry. I dont understand what you are talking about?");

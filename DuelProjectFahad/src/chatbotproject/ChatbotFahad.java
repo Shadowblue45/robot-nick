@@ -8,7 +8,7 @@ public class ChatbotFahad implements Topic {
 	public boolean chatting;
 
 	public ChatbotFahad() {
-		String[] temp = {"food","entertainment","Internet","videogames"};
+		String[] temp = {"RPG","fighting","fighter","role-play games"};
 		keywords = temp;
 		String temp2 ="stop";
 		goodbyeWords = temp2;
