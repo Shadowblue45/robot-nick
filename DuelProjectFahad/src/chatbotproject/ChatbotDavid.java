@@ -8,7 +8,7 @@ public class ChatbotDavid implements Topic {
 	private boolean chatting;
 	
 	public ChatbotDavid() {
-		String[] temp = {"Mobas","moba","mobas","Moba"};
+		String[] temp = {"Mobas","moba","mobas","Moba",""};
 		keywords = temp;
 		goodbyeWord = "bye";
 		secretWord = "wuh?";
@@ -33,7 +33,7 @@ public class ChatbotDavid implements Topic {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
-				ChatbotMain.print("Oh no did you say banned?");
+				ChatbotMain.print("I'm just as confused?");
 			} else {
 				ChatbotMain.print("Wuh? Didn't understand you.");
 			}
