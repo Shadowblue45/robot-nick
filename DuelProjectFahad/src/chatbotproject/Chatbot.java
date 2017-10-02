@@ -17,7 +17,7 @@ public class Chatbot {
 		}
 		
 		public void startTalking() {
-			ChatbotMain.print("Welcome to Gamebot-nick, the bot dedicated to video games.");
+			ChatbotMain.print("Welcome to Gamebot-nick, the bot dedicated to video games. What is your name?");
 			userName = ChatbotMain.getInput();
 			chatting = true;
 			while(chatting) {

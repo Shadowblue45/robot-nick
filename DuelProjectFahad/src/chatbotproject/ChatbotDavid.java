@@ -8,7 +8,7 @@ public class ChatbotDavid implements Topic {
 	private boolean chatting;
 	
 	public ChatbotDavid() {
-		String[] temp = {"King","Obama","Mario","video games"};
+		String[] temp = {"Mobas","moba","mobas","Moba"};
 		keywords = temp;
 		goodbyeWord = "bye";
 		secretWord = "wuh?";
