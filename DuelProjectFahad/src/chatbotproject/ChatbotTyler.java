@@ -52,7 +52,7 @@ public class ChatbotTyler implements Topic {
 				{
 					if(Rshooters[i].contains(response))
 					{
-						private string rec = round 
+						private string rec = static Math.round(0, 6);
 					}
 					
 					
