@@ -20,23 +20,28 @@ public class ChatbotTyler implements Topic {
 	public boolean isTriggered(String response) {
 		for(int i = 0; i < rplatformers.length;i++) {
 			if(ChatbotMain.findKeyword(response, rplatformers[i], 0) >= 0) {
-				
 					isPlat = true;
+					return true;
 				 }
+			}
 		for(int i = 0; i < rshooters.length;i++) {
 			if(ChatbotMain.findKeyword(response, rshooters[i], 0) >= 0) {
 					isShoot = true;
+					return true;
 			}
 			}
-		}	
+				return false;
 		}
-	
+	  
 	
 	public void startChatting(String response) {
+		if (isShoot) {
 		ChatbotMain.print("I too like shooters, is there any particular shooter game you're a big fan of?");
-		
-		/* 	ChatbotMain.print("I too like platformers, is there any particular platformer game you're a big fan of?");
-		*/
+		}
+		if (isPlat)
+		{	
+	 	ChatbotMain.print("I too like platformers, is there any particular platformer game you're a big fan of?");
+		}
 		chatting = true;
 		while (chatting) {
 			 response = ChatbotMain.getInput();
