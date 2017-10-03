@@ -46,6 +46,10 @@ public class ChatbotTyler implements Topic {
 		while (chatting) {
 
 			 response = ChatbotMain.getInput();
+			if (ChatbotMain.findKeyword(response,"hate",0) || ChatbotMain.findKeyword(response,"don't like",0) || ChatbotMain.findKeyword(response,"do not like",0)) {
+			ChatbotMain.print("Hey, I didn't ask for a game you don't like, please tell me a game you do like!");	
+			}
+			if (ChatbotMain.)
 			if (ChatbotMain.findKeyword(response,goodbyewords, 0)>=0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
