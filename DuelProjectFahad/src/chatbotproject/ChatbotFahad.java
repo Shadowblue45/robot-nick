@@ -27,8 +27,10 @@ public class ChatbotFahad implements Topic {
 					fight = true;
 					role = false;
 				}
-				role = true;
-				fight = false;
+				else {
+					role = true;
+					fight = false;
+				}
 				return true;
 			}
 		}
@@ -37,16 +39,17 @@ public class ChatbotFahad implements Topic {
 
 	@Override
 	public void startChatting(String response) {
-		ChatbotMain.print("Hey! It sounds like you and i have common interests! Let's talk some more!");
+		if(fight) {
+			ChatbotMain.print("I happen to know alot of fighting games. Here is a list of some:");
+			chatFighting(response);
+		}
+		if(role) {
+			ChatbotMain.print("I happen to know alot of role-play games. Here is a list of some:");
+			chatRPG(response);
+		}
 		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
-			if(fight) {
-				chatFighting(response);
-			}
-			if(role) {
-				chatRPG(response);
-			}
 			if(ChatbotMain.findKeyword(response,goodbyeWords,0) >= 0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
@@ -60,14 +63,20 @@ public class ChatbotFahad implements Topic {
 		}
 	}
 
-	public String chatFighting(String response) {
-		// TODO Auto-generated method stub
-		return null;
+	public void chatFighting(String response) {
+		String result = "";
+		for(int i = 0;i < fighting.length; i++) {
+			result = result + fighting[i] + "\n"; 
+		}
+		ChatbotMain.print(result);
 	}
 
-	public String chatRPG(String response) {
-		// TODO Auto-generated method stub
-		return null;
+	public void chatRPG(String response) {
+		String result = "";
+		for(int i = 0;i < rolePlay.length; i++) {
+			result = result + rolePlay[i] + "\n"; 
+		}
+		ChatbotMain.print(result);
 	}
 
 }
