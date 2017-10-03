@@ -7,6 +7,7 @@ public class Chatbot {
 		private Topic tyler;
 		private Topic david;
 		private boolean chatting;
+		private boolean first = true;
 		
 		
 		public Chatbot() {
@@ -21,7 +22,13 @@ public class Chatbot {
 			userName = ChatbotMain.getInput();
 			chatting = true;
 			while(chatting) {
-				ChatbotMain.print("Hello " + userName + ". What genre do you want to talk about?");
+				if(first) {
+					ChatbotMain.print("Hello " + userName + ". What genre do you want to talk about?");
+					first = false;
+				}
+				else {
+					ChatbotMain.print("What genre do you want to talk about?");
+				}
 				String response = ChatbotMain.getInput();
 				if(fahad.isTriggered(response)) {
 					chatting = false;
