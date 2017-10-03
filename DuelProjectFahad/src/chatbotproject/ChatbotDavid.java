@@ -5,13 +5,19 @@ public class ChatbotDavid implements Topic {
 	private String[] keywords;
 	private String goodbyeWord;
 	private String secretWord;
+	private String[] Mobas;
+	private String[] Sandboxes;
 	private boolean isSandbox;
 	private boolean isMoba;
 	private boolean chatting;
 	
 	public ChatbotDavid() {
+		String[] temp2 = {"LOL","Smite","Awesomenauts","Dota","Heros of the Storm"};
+		String[] temp3 = {"Minecraft","Terraria","Gmod","GTA","No Man's Sky",""};
 		String[] temp = {"Mobas","moba","mobas","Moba","sandbox","sand-box"};
 		keywords = temp;
+		Mobas = temp2;
+		Sandboxes = temp3;
 		goodbyeWord = "bye";
 		secretWord = "wuh?";
 	}
@@ -32,20 +38,42 @@ public class ChatbotDavid implements Topic {
 	}
 
 	public void startChatting(String response) {
-		ChatbotMain.print("So which game in this genre do you want to talk about?");
+		if(isMoba)
+			ChatbotMain.print("Whats your favorite Moba?");
+		if(isSandbox)
+			ChatbotMain.print("Whats your favorite sandbox game?");
 		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
-			
+			String favoriteGame = response;
+			if(isMoba)
+				sandBoxes(favoriteGame);
+			if(isSandbox)
+				mobas(favoriteGame);
 			if(ChatbotMain.findKeyword(response, goodbyeWord, 0) >= 0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
 				ChatbotMain.print("I'm just as confused?");
-			} else {
+			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
+				
+				}else {
 				ChatbotMain.print("Wuh? Repeat please.");
 			}
 		}
 	}
 
+
+	public void sandBoxes(String response) {
+		for(int i = 0; i < Sandboxes.length; i++) {
+			if(Sandboxes[i].contains(response))
+				ChatbotMain.print("I love " + response + " too!");
+			else
+				ChatbotMain.print("I've never heard of that game before.");
+		}
+	}
+
+	public void mobas(String response) {
+		
+	}
 }
