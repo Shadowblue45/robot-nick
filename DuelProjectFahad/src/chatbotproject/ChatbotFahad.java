@@ -8,7 +8,9 @@ public class ChatbotFahad implements Topic {
 	private boolean fight = false;
 	private boolean role = false;
 	private String botRPG = "The Witcher";
+	private String userRPG = "";
 	private String botFighting = "Guilty Gear";
+	private String userFighting = "";
 	private String[] fighting = {"Guilty Gear", "King of Fighters", "Skull Girls", "Mortal Kombat", "Injustice"};
 	private String[] rolePlay = {"The Witcher", "Skyrim", "Devil May Cry", "Pokemon","Just Cause"};
 	public boolean chatting;
@@ -44,16 +46,32 @@ public class ChatbotFahad implements Topic {
 		if(fight) {
 			ChatbotMain.print("I happen to know alot of fighting games. Here is a list of some:");
 			chatFighting(response);
-			System.out.println("My favorite fighter has to be " + botFighting);
+			System.out.println("My favorite fighter game has to be " + botFighting + "\n" + "What's Yours?");
 		}
 		if(role) {
 			ChatbotMain.print("I happen to know alot of role-play games. Here is a list of some:");
 			chatRPG(response);
-			System.out.println("My favorite RPG has to be " + botRPG);
+			System.out.println("My favorite RPG has to be " + botRPG + "\n" + "What's Yours?");
 		}
 		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
+			if(fight) {	
+				for(int i = 0; i < fighting.length;i++){
+					if(ChatbotMain.findKeyword(response,fighting[i],0) >= 0) {
+						System.out.println("Oh cool. I've heard of that one.")
+						userFighting = response;
+					}
+				}
+			}
+			if(role) {	
+				for(int i = 0; i < rolePlay.length;i++){
+					if(ChatbotMain.findKeyword(response,rolePlay[i],0) >= 0) {
+						System.out.println("Oh cool. I've heard of that one.")
+						userRPG = response;
+					}
+				}
+			}		
 			if(ChatbotMain.findKeyword(response,goodbyeWords,0) >= 0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
