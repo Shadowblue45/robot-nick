@@ -6,7 +6,7 @@ public class ChatbotDavid implements Topic {
 	private String goodbyeWord;
 	private String secretWord;
 	private boolean isSandbox;
-	private boolean isMoba
+	private boolean isMoba;
 	private boolean chatting;
 	
 	public ChatbotDavid() {
