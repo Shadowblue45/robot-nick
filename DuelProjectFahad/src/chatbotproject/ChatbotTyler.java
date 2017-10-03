@@ -9,7 +9,8 @@ public class ChatbotTyler implements Topic {
 	private String[] rshooters = {"Doom", "Quake", "Call of Duty", "Halo", "Gears of War"};
 	private String[] rplatformers = {"Super Mario Bros","Sonic the Hedgehog", "Rayman", "Super Meat Boy", "Cuphead","Duck Game"};
 	private boolean chatting; 
-	
+	private boolean isShoot = false;
+	private boolean isPlat = false;
 	public ChatbotTyler() {
 		goodbyewords = "jeff";
 		secretWord = "doge";
@@ -17,12 +18,18 @@ public class ChatbotTyler implements Topic {
 	}
 	
 	public boolean isTriggered(String response) {
-		for (int i = 0; i < keywords.length; i++) {
-			if(ChatbotMain.findKeyword(response, keywords[i], 0)>= 0)
-				return true;
+		for(int i = 0; i < rplatformers.length;i++) {
+			if(ChatbotMain.findKeyword(response, rplatformers[i], 0) >= 0) {
+				
+					isPlat = true;
+				 }
+		for(int i = 0; i < rshooters.length;i++) {
+			if(ChatbotMain.findKeyword(response, rshooters[i], 0) >= 0) {
+					isShoot = true;
+			}
+			}
+		}	
 		}
-		return false;	
-	}
 	
 	
 	public void startChatting(String response) {
