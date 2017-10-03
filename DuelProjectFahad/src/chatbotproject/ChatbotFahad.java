@@ -44,12 +44,12 @@ public class ChatbotFahad implements Topic {
 		if(fight) {
 			ChatbotMain.print("I happen to know alot of fighting games. Here is a list of some:");
 			chatFighting(response);
-			System.out.println("\n" + "My favorite fighter has to be" + botFighting);
+			System.out.println("My favorite fighter has to be " + botFighting);
 		}
 		if(role) {
 			ChatbotMain.print("I happen to know alot of role-play games. Here is a list of some:");
 			chatRPG(response);
-			System.out.println("\n" + "My favorite RPG has to be" + botRPG);
+			System.out.println("My favorite RPG has to be " + botRPG);
 		}
 		chatting = true;
 		while(chatting) {
