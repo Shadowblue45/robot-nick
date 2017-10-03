@@ -41,6 +41,12 @@ public class ChatbotFahad implements Topic {
 		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
+			if(fight) {
+				chatFighting(response);
+			}
+			if(role) {
+				chatRPG(response);
+			}
 			if(ChatbotMain.findKeyword(response,goodbyeWords,0) >= 0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
@@ -52,6 +58,18 @@ public class ChatbotFahad implements Topic {
 				ChatbotMain.print("Nani did you say to watashi?");
 			}
 		}
+	}
+
+	@Override
+	public String chatFighting(String response) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String chatRPG(String response) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
