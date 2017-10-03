@@ -60,13 +60,11 @@ public class ChatbotFahad implements Topic {
 		}
 	}
 
-	@Override
 	public String chatFighting(String response) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public String chatRPG(String response) {
 		// TODO Auto-generated method stub
 		return null;
