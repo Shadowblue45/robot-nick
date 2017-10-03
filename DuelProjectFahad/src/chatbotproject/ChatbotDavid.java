@@ -10,6 +10,7 @@ public class ChatbotDavid implements Topic {
 	private boolean isSandbox;
 	private boolean isMoba;
 	private boolean chatting;
+	private String[] unknownGames = {null, null, null, null};
 	
 	public ChatbotDavid() {
 		String[] temp2 = {"LOL","Smite","Awesomenauts","Dota","Heros of the Storm"};
@@ -68,8 +69,15 @@ public class ChatbotDavid implements Topic {
 		for(int i = 0; i < Sandboxes.length; i++) {
 			if(Sandboxes[i].contains(response))
 				ChatbotMain.print("I love " + response + " too!");
-			else
+			else {
 				ChatbotMain.print("I've never heard of that game before.");
+					for(int j = 0; j < unknownGames.length; j++) {
+						if(unknownGames[j] == null)
+							unknownGames[j] = response;
+						else
+							ChatbotMain.print("Sorry, I can't remember so many new games!");
+					}
+			}
 		}
 	}
 
