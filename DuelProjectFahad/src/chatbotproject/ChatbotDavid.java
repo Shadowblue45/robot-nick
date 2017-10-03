@@ -15,7 +15,7 @@ public class ChatbotDavid implements Topic {
 	public ChatbotDavid() {
 		String[] temp2 = {"LOL","Smite","Awesomenauts","Dota","Heros of the Storm"};
 		String[] temp3 = {"Minecraft","Terraria","Gmod","GTA","No Man's Sky",""};
-		String[] temp = {"Mobas","moba","mobas","Moba","sandbox","sand-box"};
+		String[] temp = {"Mobas","moba","mobas","Moba","sandboxes","sand-boxes","sandbox","sand-box"};
 		keywords = temp;
 		Mobas = temp2;
 		Sandboxes = temp3;
@@ -30,9 +30,11 @@ public class ChatbotDavid implements Topic {
 					isSandbox = true;
 					isMoba = false;
 				}
-				isSandbox = false;
-				isMoba = true;
-				return true;
+				 else {
+					isSandbox = false;
+					isMoba = true;
+				}
+					return true;
 			}
 		}
 		return false;
@@ -47,11 +49,11 @@ public class ChatbotDavid implements Topic {
 		while(chatting) {
 			response = ChatbotMain.getInput();
 			String favoriteGame = response;
-			if(isMoba)
-				sandBoxes(favoriteGame);
 			if(isSandbox)
+				sandBoxes(favoriteGame);
+			else if(isMoba)
 				mobas(favoriteGame);
-			if(ChatbotMain.findKeyword(response, goodbyeWord, 0) >= 0) {
+			else if(ChatbotMain.findKeyword(response, goodbyeWord, 0) >= 0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
@@ -67,15 +69,21 @@ public class ChatbotDavid implements Topic {
 
 	public void sandBoxes(String response) {
 		for(int i = 0; i < Sandboxes.length; i++) {
-			if(Sandboxes[i].contains(response))
-				ChatbotMain.print("I love " + response + " too!");
-			else {
+			if(Sandboxes[i].contains(response)) {
+				ChatbotMain.print("I love " + response + " too! What else do you like?");
+				return;
+			}else if(unknownGames[i].contains(response)) {
+				ChatbotMain.print("Thanks for teaching me about" + response);
+			}else {
 				ChatbotMain.print("I've never heard of that game before.");
 					for(int j = 0; j < unknownGames.length; j++) {
-						if(unknownGames[j] == null)
+						if(unknownGames[j] == null) {
 							unknownGames[j] = response;
-						else
+							return;
+						}else {
 							ChatbotMain.print("Sorry, I can't remember so many new games!");
+							return;
+						}
 					}
 			}
 		}
