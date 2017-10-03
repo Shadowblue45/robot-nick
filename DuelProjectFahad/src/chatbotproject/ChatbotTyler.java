@@ -28,23 +28,23 @@ public class ChatbotTyler implements Topic {
 			if(ChatbotMain.findKeyword(response, rshooters[i], 0) >= 0) {
 					isShoot = true;
 					return true;
-			}
+				}
 			}
 				return false;
 		}
 	  
 	
 	public void startChatting(String response) {
-
+		if (isShoot) {
+			ChatbotMain.print("I too like shooters, is there any particular shooter game you're a big fan of?");
+			}
+		if (isPlat)
+			{	
+		 	ChatbotMain.print("I too like platformers, is there any particular platformer game you're a big fan of?");
+			}
 		chatting = true;
 		while (chatting) {
-			if (isShoot) {
-				ChatbotMain.print("I too like shooters, is there any particular shooter game you're a big fan of?");
-				}
-				if (isPlat)
-				{	
-			 	ChatbotMain.print("I too like platformers, is there any particular platformer game you're a big fan of?");
-				}
+
 			 response = ChatbotMain.getInput();
 			if (ChatbotMain.findKeyword(response,goodbyewords, 0)>=0) {
 				chatting = false;
