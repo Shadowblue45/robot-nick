@@ -7,6 +7,8 @@ public class ChatbotFahad implements Topic {
 	private String secretWord;
 	private boolean fight = false;
 	private boolean role = false;
+	private String botRPG = "The Witcher";
+	private String botFighting = "Guilty Gear";
 	private String[] fighting = {"Guilty Gear", "King of Fighters", "Skull Girls", "Mortal Kombat", "Injustice"};
 	private String[] rolePlay = {"The Witcher", "Skyrim", "Devil May Cry", "Pokemon","Just Cause"};
 	public boolean chatting;
@@ -42,10 +44,12 @@ public class ChatbotFahad implements Topic {
 		if(fight) {
 			ChatbotMain.print("I happen to know alot of fighting games. Here is a list of some:");
 			chatFighting(response);
+			System.out.println("\n" + "My favorite fighter has to be" + botFighting);
 		}
 		if(role) {
 			ChatbotMain.print("I happen to know alot of role-play games. Here is a list of some:");
 			chatRPG(response);
+			System.out.println("\n" + "My favorite RPG has to be" + botRPG);
 		}
 		chatting = true;
 		while(chatting) {
