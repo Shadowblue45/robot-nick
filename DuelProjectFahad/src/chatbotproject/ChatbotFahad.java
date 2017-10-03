@@ -68,7 +68,7 @@ public class ChatbotFahad implements Topic {
 		for(int i = 0;i < fighting.length; i++) {
 			result = result + fighting[i] + "\n"; 
 		}
-		ChatbotMain.print(result);
+		System.out.println(result);
 	}
 
 	public void chatRPG(String response) {
@@ -76,7 +76,7 @@ public class ChatbotFahad implements Topic {
 		for(int i = 0;i < rolePlay.length; i++) {
 			result = result + rolePlay[i] + "\n"; 
 		}
-		ChatbotMain.print(result);
+		System.out.println(result);
 	}
 
 }
