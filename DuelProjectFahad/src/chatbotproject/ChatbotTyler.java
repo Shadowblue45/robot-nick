@@ -6,8 +6,8 @@ public class ChatbotTyler implements Topic {
 	private String secretWord;
 	private String[] shooters = {"fps", "first person shooter", "shooting", "1st person", "3rd person", "third person"};
 	private String[] platform = {"platform", "platforming", "sidescroller", "platformer", "side scrolling"};
-	private String[] Rshooters = {"Doom", "Quake", "Call of Duty", "Halo", "Gears of War"};
-	private String[] Rplatformers = {"Super Mario Bros","Sonic the Hedgehog", "Rayman", "Super Meat Boy", "Cuphead","Duck Game"};
+	private String[] rShooters = {"Doom", "Quake", "Call of Duty", "Halo", "Gears of War"};
+	private String[] rPlatformers = {"Super Mario Bros","Sonic the Hedgehog", "Rayman", "Super Meat Boy", "Cuphead","Duck Game"};
 	private String[] negativeWord = {"hate", "don't like", "don't love", "horrible"};
 	private boolean chatting; 
 	private boolean isShoot = false;
@@ -19,14 +19,14 @@ public class ChatbotTyler implements Topic {
 	}
 	
 	public boolean isTriggered(String response) {
-		for(int i = 0; i < Rplatformers.length;i++) {
-			if(ChatbotMain.findKeyword(response, rplatformers[i], 0) >= 0) {
+		for(int i = 0; i < rPlatformers.length;i++) {
+			if(ChatbotMain.findKeyword(response, rPlatformers[i], 0) >= 0) {
 					isPlat = true;
 					return true;
 				 }
 			}
-		for(int i = 0; i < Rshooters.length;i++) {
-			if(ChatbotMain.findKeyword(response, rshooters[i], 0) >= 0) {
+		for(int i = 0; i < rShooters.length;i++) {
+			if(ChatbotMain.findKeyword(response, rShooters[i], 0) >= 0) {
 					isShoot = true;
 					return true;
 				}
@@ -48,12 +48,11 @@ public class ChatbotTyler implements Topic {
 
 			 response = ChatbotMain.getInput();
 			if(isShoot) {
-				for(int i = 0; i < Rshooters.length; i++)
+				for(int i = 0; i < rShooters.length; i++)
 				{
 					if(Rshooters[i].contains(response))
 					{
-						
-						
+						private string rec = round 
 					}
 					
 					
