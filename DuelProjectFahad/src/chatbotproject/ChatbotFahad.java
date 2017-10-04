@@ -2,6 +2,7 @@ package chatbotproject;
 
 public class ChatbotFahad implements Topic {
 
+	private int round = 0; 
 	private String[] keywords;
 	private String goodbyeWords;
 	private String secretWord;
@@ -35,6 +36,11 @@ public class ChatbotFahad implements Topic {
 					role = true;
 					fight = false;
 				}
+				if(round < 1) {
+					round = 1;
+					botFighting = "";
+					botRPG = "";
+				}
 				return true;
 			}
 		}
@@ -64,7 +70,7 @@ public class ChatbotFahad implements Topic {
 					}
 				}
 			}
-			if(role) {	
+			else if(role) {	
 				for(int i = 0; i < rolePlay.length;i++){
 					if(ChatbotMain.findKeyword(response,rolePlay[i],0) >= 0) {
 						System.out.println("Oh cool. I've heard of that one.");
@@ -72,7 +78,7 @@ public class ChatbotFahad implements Topic {
 					}
 				}
 			}		
-			if(ChatbotMain.findKeyword(response,goodbyeWords,0) >= 0) {
+			else if(ChatbotMain.findKeyword(response,goodbyeWords,0) >= 0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
 			}
@@ -91,7 +97,9 @@ public class ChatbotFahad implements Topic {
 		for(int i = 0;i < fighting.length; i++) {
 			result = result + fighting[i] + "\n"; 
 		}
-		botFighting = fighting[randInt];
+		if(botFighting.equals("")) {
+			botFighting = fighting[randInt];
+		}
 		System.out.println(result);
 	}
 
@@ -101,7 +109,9 @@ public class ChatbotFahad implements Topic {
 		for(int i = 0;i < rolePlay.length; i++) {
 			result = result + rolePlay[i] + "\n"; 
 		}
-		botRPG = rolePlay[randInt];
+		if(botRPG.equals("")) {
+			botRPG = rolePlay[randInt];
+		}
 		System.out.println(result);
 	}
 
