@@ -50,14 +50,25 @@ public class ChatbotTyler implements Topic {
 			if(isShoot) {
 				for(int i = 0; i < rShooters.length; i++)
 				{
-					if(Rshooters[i].contains(response))
+					if(rShooters[i].contains(response))
 					{
-						private string rec = static Math.round(0, 6);
+						private int rec = static Math.round(0, 6);
+						ChatbotMain.print("I like " + response + "you should check out" + rShooters[rec]);
 					}
-					
-					
-					
+	
 				}	
+			if(isPlat) {
+
+					for(int i = 0; i < rPlat.length; i++)
+						{
+							if(rPlat[i].contains(response))
+							{
+								private int reca = static Math.round(0, 5);
+								ChatbotMain.print("I like " + response + "you should check out" + rShooters[reca]);
+							}
+			
+						}
+			}
 			if (ChatbotMain.findKeyword(response,"hate",0) || ChatbotMain.findKeyword(response,"don't like",0) || ChatbotMain.findKeyword(response,"do not like",0)) {
 			ChatbotMain.print("Hey, I didn't ask for a game you don't like, please tell me a game you do like!");	
 			}}
