@@ -64,7 +64,7 @@ public class ChatbotTyler implements Topic {
 							if(rPlat[i].contains(response))
 							{
 								private int reca = static Math.round(0, 5);
-								ChatbotMain.print("I like " + response + "you should check out" + rShooters[reca]);
+								ChatbotMain.print("I like " + response + "you should check out" + rPlat[reca]);
 							}
 			
 						}
