@@ -70,15 +70,17 @@ public class ChatbotDavid implements Topic {
 	public void sandBoxes(String response) {
 		for(int i = 0; i < Sandboxes.length; i++) {
 			if(Sandboxes[i].contains(response)) {
-				ChatbotMain.print("I love " + response + " too! What else do you like?");
+				ChatbotMain.print("I love " + response + " too! Whats another Sandbox game do you like?");
 				return;
-			}else if(unknownGames[i].contains(response)) {
-				ChatbotMain.print("Thanks for teaching me about" + response);
-			}else {
-				ChatbotMain.print("I've never heard of that game before.");
+			}
+			else if(Mobas[i].contains(response)){
+				ChatbotMain.print("Hey! " + response + " is a moba!");
+				return;
+			} else {
 					for(int j = 0; j < unknownGames.length; j++) {
 						if(unknownGames[j] == null) {
 							unknownGames[j] = response;
+							ChatbotMain.print("I've never heard of that game before.");
 							return;
 						}else {
 							ChatbotMain.print("Sorry, I can't remember so many new games!");
@@ -86,9 +88,12 @@ public class ChatbotDavid implements Topic {
 						}
 					}
 			}
+			if(unknownGames[i] != null && unknownGames[i].contains(response)) {
+				ChatbotMain.print("Thanks for teaching me about" + response);
+			}
 		}
-	}
-
+	
+}
 	public void mobas(String response) {
 		
 	}
