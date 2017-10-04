@@ -23,7 +23,7 @@ public class Chatbot {
 			chatting = true;
 			while(chatting) {
 				if(first) {
-					ChatbotMain.print("Hello " + userName + ". What genre do you want to talk about?");
+					ChatbotMain.print("Hello " + userName + ". What game genre do you want to talk about?");
 					first = false;
 				}
 				else {
