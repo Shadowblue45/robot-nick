@@ -68,32 +68,40 @@ public class ChatbotDavid implements Topic {
 
 
 	public void sandBoxes(String response) {
+		boolean wasFound = false;
+		boolean wasLearned = false;
 		for(int i = 0; i < Sandboxes.length; i++) {
 			if(Sandboxes[i].contains(response)) {
 				ChatbotMain.print("I love " + response + " too! Whats another Sandbox game do you like?");
-				return;
+				wasFound =true;
 			}
-			else if(Mobas[i].contains(response)){
-				ChatbotMain.print("Hey! " + response + " is a moba!");
-				return;
-			} else {
+			else {
+				for(int h = 0; h < Mobas.length; h++) {
+					if(Mobas[h].contains(response)){
+						ChatbotMain.print("Hey! " + response + " is a moba!");
+						return;
+				}
+			}
+			
+		} 
+	}	
+		if(!wasFound) {
 					for(int j = 0; j < unknownGames.length; j++) {
+						
 						if(unknownGames[j] == null) {
 							unknownGames[j] = response;
 							ChatbotMain.print("I've never heard of that game before.");
-							return;
+							wasLearned = true;
 						}else {
 							ChatbotMain.print("Sorry, I can't remember so many new games!");
-							return;
+						}
+						if(wasLearned && unknownGames[j] != null && unknownGames[j].contains(response)) {
+								ChatbotMain.print("Thanks for teaching me about" + response);
 						}
 					}
 			}
-			if(unknownGames[i] != null && unknownGames[i].contains(response)) {
-				ChatbotMain.print("Thanks for teaching me about" + response);
-			}
 		}
 	
-}
 	public void mobas(String response) {
 		
 	}
