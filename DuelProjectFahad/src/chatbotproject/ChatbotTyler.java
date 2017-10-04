@@ -36,6 +36,7 @@ public class ChatbotTyler implements Topic {
 	  
 	
 	public void startChatting(String response) {
+		int rec = 0;
 		if (isShoot) {
 			ChatbotMain.print("I too like shooters, is there any particular shooter game you're a big fan of?");
 			}
