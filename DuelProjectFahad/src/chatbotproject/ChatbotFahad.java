@@ -59,7 +59,7 @@ public class ChatbotFahad implements Topic {
 			if(fight) {	
 				for(int i = 0; i < fighting.length;i++){
 					if(ChatbotMain.findKeyword(response,fighting[i],0) >= 0) {
-						System.out.println("Oh cool. I've heard of that one.")
+						System.out.println("Oh cool. I've heard of that one.");
 						userFighting = response;
 					}
 				}
@@ -67,7 +67,7 @@ public class ChatbotFahad implements Topic {
 			if(role) {	
 				for(int i = 0; i < rolePlay.length;i++){
 					if(ChatbotMain.findKeyword(response,rolePlay[i],0) >= 0) {
-						System.out.println("Oh cool. I've heard of that one.")
+						System.out.println("Oh cool. I've heard of that one.");
 						userRPG = response;
 					}
 				}
