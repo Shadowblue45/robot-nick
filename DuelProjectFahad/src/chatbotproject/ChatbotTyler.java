@@ -19,13 +19,13 @@ public class ChatbotTyler implements Topic {
 	}
 	
 	public boolean isTriggered(String response) {
-		for(int i = 0; i < rPlat.length;i++) {
+		for(int i = 0; i < platform.length;i++) {
 			if(ChatbotMain.findKeyword(response, rPlat[i], 0) >= 0) {
 					isPlat = true;
 					return true;
 				 }
 			}
-		for(int i = 0; i < rShooters.length;i++) {
+		for(int i = 0; i <  shooters.length;i++) {
 			if(ChatbotMain.findKeyword(response, rShooters[i], 0) >= 0) {
 					isShoot = true;
 					return true;
