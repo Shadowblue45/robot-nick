@@ -7,9 +7,9 @@ public class ChatbotFahad implements Topic {
 	private String secretWord;
 	private boolean fight = false;
 	private boolean role = false;
-	private String botRPG = "The Witcher";
+	private String botRPG = "";
 	private String userRPG = "";
-	private String botFighting = "Guilty Gear";
+	private String botFighting = "";
 	private String userFighting = "";
 	private String[] fighting = {"Guilty Gear", "King of Fighters", "Skull Girls", "Mortal Kombat", "Injustice"};
 	private String[] rolePlay = {"The Witcher", "Skyrim", "Devil May Cry", "Pokemon","Just Cause"};
@@ -87,17 +87,21 @@ public class ChatbotFahad implements Topic {
 
 	public void chatFighting(String response) {
 		String result = "";
+		int randInt = (int)(Math.random()* fighting.length);
 		for(int i = 0;i < fighting.length; i++) {
 			result = result + fighting[i] + "\n"; 
 		}
+		botFighting = fighting[randInt];
 		System.out.println(result);
 	}
 
 	public void chatRPG(String response) {
 		String result = "";
+		int randInt = (int)(Math.random()* rolePlay.length);
 		for(int i = 0;i < rolePlay.length; i++) {
 			result = result + rolePlay[i] + "\n"; 
 		}
+		botRPG = rolePlay[randInt];
 		System.out.println(result);
 	}
 
