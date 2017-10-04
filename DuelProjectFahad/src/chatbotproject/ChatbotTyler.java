@@ -15,74 +15,75 @@ public class ChatbotTyler implements Topic {
 	public ChatbotTyler() {
 		goodbyewords = "jeff";
 		secretWord = "doge";
-		
+
 	}
-	
+
 	public boolean isTriggered(String response) {
 		for(int i = 0; i < platform.length;i++) {
-			if(ChatbotMain.findKeyword(response, rPlat[i], 0) >= 0) {
-					isPlat = true;
-					return true;
-				 }
+			if(ChatbotMain.findKeyword(response, platform[i], 0) >= 0) {
+				isPlat = true;
+				return true;
 			}
-		for(int i = 0; i <  shooters.length;i++) {
-			if(ChatbotMain.findKeyword(response, rShooters[i], 0) >= 0) {
-					isShoot = true;
-					return true;
-				}
-			}
-				return false;
 		}
-	  
-	
+		for(int i = 0; i <  shooters.length;i++) {
+			if(ChatbotMain.findKeyword(response, shooters[i], 0) >= 0) {
+				isShoot = true;
+				return true;
+			}
+		}
+		return false;
+	}
+
+
 	public void startChatting(String response) {
 		int rec = 0;
 		if (isShoot) {
 			ChatbotMain.print("I too like shooters, is there any particular shooter game you're a big fan of?");
-			}
+		}
 		if (isPlat)
-			{	
-		 	ChatbotMain.print("I too like platformers, is there any particular platformer game you're a big fan of?");
-			}
+		{	
+			ChatbotMain.print("I too like platformers, is there any particular platformer game you're a big fan of?");
+		}
 		chatting = true;
 		while (chatting) {
 
-			 response = ChatbotMain.getInput();
+			response = ChatbotMain.getInput();
 			if(isShoot) {
-				for(int i = 0; i < rShooters.length; i++)
-				{
-					if(rShooters[i].contains(response))
-					{
-						rec = (int)(Math.random()*rShooters.length);
-						ChatbotMain.print("I like " + response + "you should check out" + rShooters[rec]);
-					}
-	
-				}	
-			if(isPlat) {
-
-				for(int i = 0; i < rPlat.length; i++)
-					{
-						if(rPlat[i].contains(response))
-						{					
-							ChatbotMain.print("I like " + response + "you should check out" + rPlat[rec]);
-						}
+				giveRec(rShooters, response);
 			
-					}
-			}
-			/*if (ChatbotMain.findKeyword(response,"hate",0) || ChatbotMain.findKeyword(response,"don't like",0) || ChatbotMain.findKeyword(response,"do not like",0)) {
+				if(isPlat) {
+
+				giveRec(rPlat, response);	
+				}
+				/*if (ChatbotMain.findKeyword(response,"hate",0) || ChatbotMain.findKeyword(response,"don't like",0) || ChatbotMain.findKeyword(response,"do not like",0)) {
 			ChatbotMain.print("Hey, I didn't ask for a game you don't like, please tell me a game you do like!");	
 			}}
 			if (ChatbotMain.) */
-			if (ChatbotMain.findKeyword(response,goodbyewords, 0)>=0) {
-				chatting = false;
-				ChatbotMain.chatbot.startTalking();
-			}else if (ChatbotMain.findKeyword(response, secretWord, 0) >=0) {
-				ChatbotMain.print("Cool! You guessed my favorite thing ever. We are friends now.");		
-			}else {
-				
-				ChatbotMain.print("what");
+				if (ChatbotMain.findKeyword(response,goodbyewords, 0)>=0) {
+					chatting = false;
+					ChatbotMain.chatbot.startTalking();
+				}else if (ChatbotMain.findKeyword(response, secretWord, 0) >=0) {
+					ChatbotMain.print("Cool! You guessed my favorite thing ever. We are friends now.");		
+				}else {
+
+					ChatbotMain.print("what");
+				}
+
 			}
-			
 		}
 	}
-}  }
+	
+	public void giveRec(String[] games , String response) {
+		int rec = 0;
+		for(int i = 0; i < games.length; i++)
+		{
+			if(games[i].contains(response))
+			{
+				rec = (int)(Math.random()*games.length);
+				ChatbotMain.print("I like " + response + "you should check out" + games[rec]);
+			}
+
+		}	
+	}
+	
+}
