@@ -52,7 +52,7 @@ public class ChatbotTyler implements Topic {
 				{
 					if(rShooters[i].contains(response))
 					{
-						private int rec = static Math.round(0, 6);
+						private int rec = Random().nextInt(rShooters.length);
 						ChatbotMain.print("I like " + response + "you should check out" + rShooters[rec]);
 					}
 	
@@ -63,8 +63,8 @@ public class ChatbotTyler implements Topic {
 						{
 							if(rPlat[i].contains(response))
 							{
-								private int reca = static Math.round(0, 5);
-								ChatbotMain.print("I like " + response + "you should check out" + rPlat[reca]);
+								rec = Random().nextInt(rPlatformers.length);
+								ChatbotMain.print("I like " + response + "you should check out" + rPlat[rec]);
 							}
 			
 						}
