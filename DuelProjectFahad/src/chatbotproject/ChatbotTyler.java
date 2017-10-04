@@ -7,7 +7,7 @@ public class ChatbotTyler implements Topic {
 	private String[] shooters = {"fps", "first person shooter", "shooting", "1st person", "3rd person", "third person"};
 	private String[] platform = {"platform", "platforming", "sidescroller", "platformer", "side scrolling"};
 	private String[] rShooters = {"Doom", "Quake", "Call of Duty", "Halo", "Gears of War"};
-	private String[] rPlatformers = {"Super Mario Bros","Sonic the Hedgehog", "Rayman", "Super Meat Boy", "Cuphead","Duck Game"};
+	private String[] rPlat = {"Super Mario Bros","Sonic the Hedgehog", "Rayman", "Super Meat Boy", "Cuphead","Duck Game"};
 	private String[] negativeWord = {"hate", "don't like", "don't love", "horrible"};
 	private boolean chatting; 
 	private boolean isShoot = false;
@@ -19,8 +19,8 @@ public class ChatbotTyler implements Topic {
 	}
 	
 	public boolean isTriggered(String response) {
-		for(int i = 0; i < rPlatformers.length;i++) {
-			if(ChatbotMain.findKeyword(response, rPlatformers[i], 0) >= 0) {
+		for(int i = 0; i < rPlat.length;i++) {
+			if(ChatbotMain.findKeyword(response, rPlat[i], 0) >= 0) {
 					isPlat = true;
 					return true;
 				 }
@@ -52,27 +52,27 @@ public class ChatbotTyler implements Topic {
 				{
 					if(rShooters[i].contains(response))
 					{
-						private int rec = Random().nextInt(rShooters.length);
+						rec = Random().nextInt(rShooters.length);
 						ChatbotMain.print("I like " + response + "you should check out" + rShooters[rec]);
 					}
 	
 				}	
 			if(isPlat) {
 
-					for(int i = 0; i < rPlat.length; i++)
+				for(int i = 0; i < rPlat.length; i++)
 						{
 							if(rPlat[i].contains(response))
 							{
-								rec = Random().nextInt(rPlatformers.length);
+								rec = Random().nextInt(rPlat.length);
 								ChatbotMain.print("I like " + response + "you should check out" + rPlat[rec]);
 							}
 			
 						}
 			}
-			if (ChatbotMain.findKeyword(response,"hate",0) || ChatbotMain.findKeyword(response,"don't like",0) || ChatbotMain.findKeyword(response,"do not like",0)) {
+			/*if (ChatbotMain.findKeyword(response,"hate",0) || ChatbotMain.findKeyword(response,"don't like",0) || ChatbotMain.findKeyword(response,"do not like",0)) {
 			ChatbotMain.print("Hey, I didn't ask for a game you don't like, please tell me a game you do like!");	
 			}}
-			if (ChatbotMain.)
+			if (ChatbotMain.) */
 			if (ChatbotMain.findKeyword(response,goodbyewords, 0)>=0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
