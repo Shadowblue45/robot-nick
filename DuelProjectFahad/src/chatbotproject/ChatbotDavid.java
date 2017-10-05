@@ -11,6 +11,7 @@ public class ChatbotDavid implements Topic {
 	private boolean isMoba;
 	private boolean chatting;
 	private String[] unknownGames = {null, null, null, null};
+	private boolean wasLearned = false;
 	
 	public ChatbotDavid() {
 		String[] temp2 = {"LOL","Smite","Awesomenauts","Dota","Heros of the Storm"};
@@ -69,7 +70,6 @@ public class ChatbotDavid implements Topic {
 
 	public void sandBoxes(String response) {
 			boolean wasFound = false;
-			boolean wasLearned = false;
 		for(int i = 0; i < Sandboxes.length; i++) {
 			if(Sandboxes[i].contains(response)) 
 			{
@@ -91,29 +91,36 @@ public class ChatbotDavid implements Topic {
 		{
 					for(int j = 0; j < unknownGames.length; j++) 
 					{
-						
-						if(unknownGames[j] == null) 
-						{
-							unknownGames[j] = response;
-							ChatbotMain.print("I've never heard of that game before.");
-							wasLearned = true;
-							return;
-						}
-							
-							else 
-							{
-								ChatbotMain.print("Sorry, I can't remember so many new games!");
-							}
-						
-						if(wasLearned && unknownGames[j] != null && unknownGames[j].contains(response)) 
+					/*  Test
+					    if(wasLearned) 
+						ChatbotMain.print("nice");
+						else
+							ChatbotMain.print("not nice");
+					*/	
+						if(wasLearned && unknownGames != null && unknownGames[j].contains(response)) 
 						{
 							ChatbotMain.print("Thanks for teaching me about" + response);
 						}
+						
+						else if(unknownGames[j] == null) 
+						{
+							unknownGames[j] = response;
+							ChatbotMain.print("I've never heard of that game before.");
+							notWasLearned();
+							return;
+						}
+							
 					}
+				if(unknownGames[3] != null)
+					ChatbotMain.print("Sorry, I can't remember so many new games!");
 		}
 	}
-	
+
 	public void mobas(String response) {
 		
+	}
+	
+	private void notWasLearned() {
+		wasLearned = !wasLearned;
 	}
 }
