@@ -92,6 +92,7 @@ public class ChatbotDavid implements Topic {
 							unknownGames[j] = response;
 							ChatbotMain.print("I've never heard of that game before.");
 							wasLearned = true;
+							return;
 						}else {
 							ChatbotMain.print("Sorry, I can't remember so many new games!");
 						}
