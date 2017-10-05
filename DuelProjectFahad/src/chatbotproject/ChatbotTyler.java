@@ -4,8 +4,8 @@ public class ChatbotTyler implements Topic {
 	private String[] keywords;
 	private String goodbyewords;
 	private String secretWord;
-	private String[] shooters = {"fps", "first person shooter", "shooting", "1st person", "3rd person", "third person"};
-	private String[] platform = {"platform", "platforming", "sidescroller", "platformer", "side scrolling"};
+	private String[] shooters = {"fps", "first person shooter", "shooting", "1st person", "3rd person", "third person", "shooter"};
+	private String[] platform = {"platform", "platforming", "sidescroller", "platformer", "side scrolling","jeff dunham"};
 	private String[] rShooters = {"Doom", "Quake", "Call of Duty", "Halo", "Gears of War"};
 	private String[] rPlat = {"Super Mario Bros","Sonic the Hedgehog", "Rayman", "Super Meat Boy", "Cuphead","Duck Game"};
 	private String[] negativeWord = {"hate", "don't like", "don't love", "horrible"};
