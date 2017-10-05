@@ -42,14 +42,12 @@ public class ChatbotTyler implements Topic {
 			if(ChatbotMain.findKeyword(response,games[i],0) >= 0) 
 			{
 				rec = (int)(Math.random()*games.length);
-				ChatbotMain.print("I like " + response + "you should check out" + games[rec]);
-			}
-			else
-			{
 				
-				ChatbotMain.print("what");
-			}	
-		}	
+				ChatbotMain.print("I like " + response + " too, you should check out " + games[rec]);
+			}
+
+		}
+		
 	}
 	
 	public void startChatting(String response) {
@@ -62,15 +60,14 @@ public class ChatbotTyler implements Topic {
 		}
 		chatting = true;
 		while (chatting) {
-
 			response = ChatbotMain.getInput();
 			if(isShoot) {
 				giveRec(rShooters, response);
-			
-				if(isPlat) {
+			}
+			if(isPlat) {
 
-				giveRec(rPlat, response);	
-				}
+			giveRec(rPlat, response);	
+			}
 				/*if (ChatbotMain.findKeyword(response,"hate",0) || ChatbotMain.findKeyword(response,"don't like",0) || ChatbotMain.findKeyword(response,"do not like",0)) {
 			ChatbotMain.print("Hey, I didn't ask for a game you don't like, please tell me a game you do like!");	
 			}}
@@ -91,4 +88,4 @@ public class ChatbotTyler implements Topic {
 	
 
 	
-}
+
