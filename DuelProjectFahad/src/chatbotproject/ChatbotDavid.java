@@ -14,7 +14,7 @@ public class ChatbotDavid implements Topic {
 	
 	public ChatbotDavid() {
 		String[] temp2 = {"LOL","Smite","Awesomenauts","Dota","Heros of the Storm"};
-		String[] temp3 = {"Minecraft","Terraria","Gmod","GTA","No Man's Sky",""};
+		String[] temp3 = {"Minecraft","Terraria","Gmod","GTA","No Man's Sky"};
 		String[] temp = {"Mobas","moba","mobas","Moba","sandboxes","sand-boxes","sandbox","sand-box"};
 		keywords = temp;
 		Mobas = temp2;
