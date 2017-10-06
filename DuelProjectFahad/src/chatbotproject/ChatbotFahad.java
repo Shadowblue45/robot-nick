@@ -56,9 +56,7 @@ public class ChatbotFahad implements Topic {
 	public void startChatting(String response) {
 		if(fight) {
 			if(fRound) {
-				ChatbotMain.print("I happen to know alot of fighting games. Here is a list of some:");
 				chatFighting(response);
-				System.out.println("My favorite fighter game has to be " + botFighting + "\n" + "What's Yours?");
 				fRound = false;
 			}
 			else {
@@ -163,6 +161,7 @@ public class ChatbotFahad implements Topic {
 	public void chatFighting(String response) {
 		String result = "";
 		int randInt = (int)(Math.random()* fighting.length);
+		ChatbotMain.print("I happen to know alot of fighting games. Here is a list of some:");
 		for(int i = 0;i < fighting.length; i++) {
 			result = result + fighting[i] + "\n"; 
 		}
@@ -170,6 +169,7 @@ public class ChatbotFahad implements Topic {
 			botFighting = fighting[randInt];
 		}
 		System.out.println(result);
+		System.out.println("My favorite fighter game has to be " + botFighting + "\n" + "What's Yours?");
 	}
 
 	public void chatRPG(String response) {
