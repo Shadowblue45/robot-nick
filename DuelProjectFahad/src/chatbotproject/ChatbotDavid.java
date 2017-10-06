@@ -10,11 +10,16 @@ public class ChatbotDavid implements Topic {
 	private boolean isSandbox;
 	private boolean isMoba;
 	private boolean chatting;
-	private String[] unknownGames = {null, null, null, null};
-	private boolean wasLearned1 = false;
-	private boolean wasLearned2 = false;
-	private boolean wasLearned3 = false;
-	private boolean wasLearned0 = false;
+	private String[] unknownSanboxGames = {null, null, null, null};
+	private String[] unknownMobaGames = {null, null, null, null};
+	private boolean wasLearnedSanbox1 = false;
+	private boolean wasLearnedSanbox2 = false;
+	private boolean wasLearnedSanbox3 = false;
+	private boolean wasLearnedSanbox0 = false;
+	private boolean wasLearnedMoba1 = false;
+	private boolean wasLearnedMoba2 = false;
+	private boolean wasLearnedMoba3 = false;
+	private boolean wasLearnedMoba0 = false;
 	
 	public ChatbotDavid() {
 		String[] temp2 = {"lol","smite","awesomenauts","dota","heros of the storm","league of legends"};
@@ -90,7 +95,7 @@ public class ChatbotDavid implements Topic {
 		}	
 		if(!wasFound) 
 		{
-					for(int j = 0; j < unknownGames.length; j++) 
+					for(int j = 0; j < unknownSanboxGames.length; j++) 
 					{
 					/*  Test
 					    if(wasLearned) 
@@ -98,39 +103,95 @@ public class ChatbotDavid implements Topic {
 						else
 							ChatbotMain.print("not nice");
 					*/	
-						if((wasLearned1 || wasLearned2 || wasLearned3 || wasLearned0) && unknownGames[j] != null && unknownGames[j].contains(response)) 
+						if((wasLearnedSanbox1 || wasLearnedSanbox2 || wasLearnedSanbox3 || wasLearnedSanbox0) && unknownSanboxGames[j] != null && unknownSanboxGames[j].contains(response)) 
 						{
 							ChatbotMain.print("Thanks for teaching me about " + response);
 							return;
 						}
 						
-						else if(unknownGames[j] == null) 
+						else if(unknownSanboxGames[j] == null) 
 						{
-							unknownGames[j] = response;
+							unknownSanboxGames[j] = response;
 							ChatbotMain.print("I've never heard of that game before.");
-							notWasLearned(j);
+							notWasLearnedSandbox(j);
 							return;
 						}
 							
 					}
-				if(unknownGames[3] != null)
+				if(unknownSanboxGames[3] != null)
 					ChatbotMain.print("Sorry, I can't remember so many new games!");
 				return;
 		}
 	}
 
 	public void mobas(String response) {
-		
+		boolean wasFound = false;
+		for(int i = 0; i < Mobas.length; i++) {
+			if(Mobas[i].contains(response)) 
+			{
+				ChatbotMain.print("I love " + response + " too! Whats another Moba game do you like?");
+				wasFound =true;
+			}
+			else {
+				for(int h = 0; h < Sandboxes.length; h++)
+				{
+					if(Sandboxes[h].contains(response)){
+						ChatbotMain.print("Hey! " + response + " is a sandbox!");
+						return;
+					}
+				}
+			
+			} 
+		}	
+		if(!wasFound) 
+		{
+					for(int j = 0; j < unknownMobaGames.length; j++) 
+					{
+					/*  Test
+					    if(wasLearned) 
+						ChatbotMain.print("nice");
+						else
+							ChatbotMain.print("not nice");
+					*/	
+						if((wasLearnedMoba1 || wasLearnedMoba2 || wasLearnedMoba3 || wasLearnedMoba0) && unknownMobaGames[j] != null && unknownMobaGames[j].contains(response)) 
+						{
+							ChatbotMain.print("Thanks for teaching me about " + response);
+							return;
+						}
+						
+						else if(unknownMobaGames[j] == null) 
+						{
+							unknownMobaGames[j] = response;
+							ChatbotMain.print("I've never heard of that game before.");
+							notWasLearnedMoba(j);
+							return;
+						}
+							
+					}
+				if(unknownMobaGames[3] != null)
+					ChatbotMain.print("Sorry, I can't remember so many new games!");
+				return;
+		}
 	}
 	
-	private void notWasLearned(int num) {
+	private void notWasLearnedSandbox(int num) {
 		if(num == 0)
-			wasLearned0 = !wasLearned0;
+			wasLearnedSanbox0 = !wasLearnedSanbox0;
 		if(num == 1)
-			wasLearned1 = !wasLearned1;
+			wasLearnedSanbox1 = !wasLearnedSanbox1;
+		if(num == 2)
+			wasLearnedSanbox2 = !wasLearnedSanbox2;
+		if(num == 3)
+			wasLearnedSanbox3 = !wasLearnedSanbox3;
+	}
+	private void notWasLearnedMoba(int num) {
 		if(num == 0)
-			wasLearned2 = !wasLearned2;
-		if(num == 0)
-			wasLearned3 = !wasLearned3;
+			wasLearnedMoba0 = !wasLearnedMoba0;
+		if(num == 1)
+			wasLearnedMoba1 = !wasLearnedMoba1;
+		if(num == 2)
+			wasLearnedMoba2 = !wasLearnedMoba2;
+		if(num == 3)
+			wasLearnedMoba3 = !wasLearnedMoba3;
 	}
 }
