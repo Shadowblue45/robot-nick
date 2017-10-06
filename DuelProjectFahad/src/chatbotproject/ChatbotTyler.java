@@ -37,14 +37,26 @@ public class ChatbotTyler implements Topic {
 
 	public void giveRec(String[] games , String response) {
 		int rec = 0;
+		int hate = 0;
 		for(int i = 0; i < games.length; i++)
 		{
+			
+			if(ChatbotMain.findKeyword(response, "hate " , 0) >=0 || ChatbotMain.findKeyword(response, "bad", 0) >=0)
+			{
+				hate++;
+				
+			}	
+			if( hate > 0) {
+				ChatbotMain.print("Hey! You're supposed to tell me a game you like not hate!");
+			}
+			
 			if(ChatbotMain.findKeyword(response,games[i],0) >= 0) 
 			{
 				rec = (int)(Math.random()*games.length);
 				
 				ChatbotMain.print("I like " + response + " too, you should check out " + games[rec]);
 			}
+	
 
 		}
 		
