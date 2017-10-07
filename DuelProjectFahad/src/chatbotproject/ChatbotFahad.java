@@ -5,7 +5,6 @@ public class ChatbotFahad implements Topic {
 	private boolean round = true;
 	private boolean fRound = true;
 	private boolean rRound = true;
-	private boolean word;
 	private boolean wordRPG;
 	private boolean wordFight;
 	private String[] keywords;
@@ -57,103 +56,99 @@ public class ChatbotFahad implements Topic {
 		if(fight) {
 			if(fRound) {
 				chatFighting(response);
-				fRound = false;
 			}
 			else {
-				guessFight(response);
+				System.out.println("So you want to talk about fighting games again. Do you remember which was my favorite?");
 			}
 		}
 		else if(role) {
 			if(rRound) {
-				ChatbotMain.print("I happen to know alot of role-play games. Here is a list of some:");
 				chatRPG(response);
-				System.out.println("My favorite RPG has to be " + botRPG + "\n" + "What's Yours?");
-				rRound = false;
 			}
 			else {
-				guessFight(response);
+				System.out.println("So you want to talk about RPGs again. Do you remember which was my favorite?");
 			}
 		}
 		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
-			word = true;
-			if(word) {
-				if(fight) {	
+			if(ChatbotMain.findKeyword(response,goodbyeWords,0) >= 0) {
+				chatting = false;
+				ChatbotMain.chatbot.startTalking();
+			}
+			else if(ChatbotMain.findKeyword(response, secretWord,0) >= 0) {
+				ChatbotMain.print("Oh my goodness! you guessed my favorite thing ever!");
+			}
+			else if(fight && fRound) {	
+				for(int i = 0; i < fighting.length;i++){
+					if(ChatbotMain.findKeyword(response,fighting[i],0) >= 0) {
+						wordFight = true;
+						wordRPG = false;
+					}
+				}
+				for(int j = 0; j < rolePlay.length;j++){
+					if(ChatbotMain.findKeyword(response,rolePlay[j],0) >= 0) {
+						wordFight = false;
+						wordRPG = true;
+					}
+				}
+				if(wordFight) {
 					for(int i = 0; i < fighting.length;i++){
 						if(ChatbotMain.findKeyword(response,fighting[i],0) >= 0) {
-							wordFight = true;
-							wordRPG = false;
-						}
-					}
-					for(int j = 0; j < rolePlay.length;j++){
-						if(ChatbotMain.findKeyword(response,rolePlay[j],0) >= 0) {
-							wordFight = false;
-							wordRPG = true;
-						}
-					}
-					if(wordFight) {
-						for(int i = 0; i < fighting.length;i++){
-							if(ChatbotMain.findKeyword(response,fighting[i],0) >= 0) {
-								if(fighting[i].equals(botFighting)) {
-									ChatbotMain.print("Oh wow! We both love the same fighting game. That's amazing");
-								}
-								else {
-									ChatbotMain.print("Oh cool. I've heard of that one.");
-									userFighting = response;
-								}
+							if(fighting[i].equals(botFighting)) {
+								ChatbotMain.print("Oh wow! We both love the same fighting game. That's amazing");
+							}
+							else {
+								ChatbotMain.print("Oh cool. I've heard of that one.");
+								userFighting = response;
 							}
 						}
-					}
-					else if(wordRPG){
-						ChatbotMain.print("That's an RPG, not a fighter");
+						fRound = false;
 					}
 				}
-				else if(role) {	
+				else if(wordRPG){
+					ChatbotMain.print("That's an RPG, not a fighter");
+				}
+			}
+			else if(role && rRound) {	
+				for(int i = 0; i < rolePlay.length;i++){
+					if(ChatbotMain.findKeyword(response,rolePlay[i],0) >= 0) {
+						wordFight = false;
+						wordRPG = true;
+					}
+				}
+				for(int j = 0; j < fighting.length;j++){
+					if(ChatbotMain.findKeyword(response,fighting[j],0) >= 0) {
+						wordFight = true;
+						wordRPG = false;
+					}
+				}
+				if(wordRPG) {
 					for(int i = 0; i < rolePlay.length;i++){
 						if(ChatbotMain.findKeyword(response,rolePlay[i],0) >= 0) {
-							wordFight = false;
-							wordRPG = true;
-						}
-					}
-					for(int j = 0; j < fighting.length;j++){
-						if(ChatbotMain.findKeyword(response,fighting[j],0) >= 0) {
-							wordFight = true;
-							wordRPG = false;
-						}
-					}
-					if(wordRPG) {
-						for(int i = 0; i < rolePlay.length;i++){
-							if(ChatbotMain.findKeyword(response,rolePlay[i],0) >= 0) {
-								if(rolePlay[i].equals(botRPG)) {
-									ChatbotMain.print("Oh wow! We both love the same RPG. That's amazing");
-								}
-								else {
-									ChatbotMain.print("Oh cool. I've heard of that one.");
-									userFighting = response;
-								}
+							if(rolePlay[i].equals(botRPG)) {
+								ChatbotMain.print("Oh wow! We both love the same RPG. That's amazing");
+							}
+							else {
+								ChatbotMain.print("Oh cool. I've heard of that one.");
+								userFighting = response;
 							}
 						}
+						rRound = false;
 					}
-					else if(wordFight){
-						ChatbotMain.print("That's a fighter, not an RPG");
-					}
-					else {
-						word = false;
-					}
-				}	
+				}
+				else if(wordFight){
+					ChatbotMain.print("That's a fighter, not an RPG");
+				}
 			}
-			if(!word) {
-				if(ChatbotMain.findKeyword(response,goodbyeWords,0) >= 0) {
-					chatting = false;
-					ChatbotMain.chatbot.startTalking();
-				}
-				else if(ChatbotMain.findKeyword(response, secretWord,0) >= 0) {
-					ChatbotMain.print("Oh my goodness! you guessed my favorite thing ever!");
-				}
-				else {
-					ChatbotMain.print("Nani did you say to watashi?");
-				}
+			else if(!fRound && fight) {
+				guessFav(response);
+			}
+			else if(role && !rRound) {
+				guessFav(response);
+			}
+			else {
+				ChatbotMain.print("Nani did you say to watashi?");
 			}
 		}
 	}
@@ -175,6 +170,7 @@ public class ChatbotFahad implements Topic {
 	public void chatRPG(String response) {
 		String result = "";
 		int randInt = (int)(Math.random()* rolePlay.length);
+		ChatbotMain.print("I happen to know alot of role-play games. Here is a list of some:");
 		for(int i = 0;i < rolePlay.length; i++) {
 			result = result + rolePlay[i] + "\n"; 
 		}
@@ -182,21 +178,20 @@ public class ChatbotFahad implements Topic {
 			botRPG = rolePlay[randInt];
 		}
 		System.out.println(result);
+		System.out.println("My favorite RPG has to be " + botRPG + "\n" + "What's Yours?");
 	}
 	
-	public void guessFight(String response) {
+	public void guessFav(String response) {
 		if(fight) {
-			System.out.println("So you want to talk about fighting games again. Do you remember which was my favorite?");
-			if(response.equals(botFighting)) {
+			if(response.toLowerCase().equals(botFighting.toLowerCase())) {
 				ChatbotMain.print("Hooray! You remembered what it was!");
 			}
 			else {
 				ChatbotMain.print("Ow wow! How do you not remember? It's " + botFighting + ". I still remember that yours is " + userFighting + ".");
 			}
 		}
-		if(role) {
-			System.out.println("So you want to talk about RPGs again. Do you remember which was my favorite?");
-			if(response.equals(botRPG)) {
+		else if(role) {
+			if(response.toLowerCase().equals(botRPG.toLowerCase())) {
 				ChatbotMain.print("Hooray! You remembered what it was!");
 			}
 			else {
