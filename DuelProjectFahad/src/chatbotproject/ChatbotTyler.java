@@ -58,12 +58,8 @@ public class ChatbotTyler implements Topic {
 				
 				ChatbotMain.print("I like " + response + " too, you should check out " + games[rec]);
 			}
-			if(found >0)
-			{
-				
-				
-			}
-			/*ChatbotMain.print("what"); */
+
+			ChatbotMain.print("what"); 
 		}
 		
 	}
