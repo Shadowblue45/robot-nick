@@ -37,19 +37,19 @@ public class ChatbotTyler implements Topic {
 
 	public void giveRec(String[] games , String response) {
 		int rec = 0;
-		int hate = 0;
+		int notfound = 0;
 		int found = 0;
 		for(int i = 0; i < games.length; i++)
 		{
 			
-			if(ChatbotMain.findKeyword(response, "hate " , 0) >=0 || ChatbotMain.findKeyword(response, "bad", 0) >=0)
+/*			if(ChatbotMain.findKeyword(response, "hate " , 0) >=0 || ChatbotMain.findKeyword(response, "bad", 0) >=0)
 			{
 				hate++;
 				
 			}	
 			if( hate == games.length) {
 				ChatbotMain.print("Hey! You're supposed to tell me a game you like not hate!");
-			}
+			} */
 			
 			if(ChatbotMain.findKeyword(response,games[i],0) >= 0) 
 			{
@@ -58,8 +58,12 @@ public class ChatbotTyler implements Topic {
 				
 				ChatbotMain.print("I like " + response + " too, you should check out " + games[rec]);
 			}
-	
-
+			if(found >0)
+			{
+				
+				
+			}
+			/*ChatbotMain.print("what"); */
 		}
 		
 	}
@@ -75,23 +79,26 @@ public class ChatbotTyler implements Topic {
 		chatting = true;
 		while (chatting) {
 			response = ChatbotMain.getInput();
-			if(isShoot) {
-				giveRec(rShooters, response);
-			}
-			if(isPlat) {
 
-			giveRec(rPlat, response);	
-			}
 				/*if (ChatbotMain.findKeyword(response,"hate",0) || ChatbotMain.findKeyword(response,"don't like",0) || ChatbotMain.findKeyword(response,"do not like",0)) {
 			ChatbotMain.print("Hey, I didn't ask for a game you don't like, please tell me a game you do like!");	
 			}}
 			if (ChatbotMain.) */
-				if (ChatbotMain.findKeyword(response,goodbyewords, 0)>=0) {
+			 if (ChatbotMain.findKeyword(response,goodbyewords, 0)>=0) {
 					chatting = false;
 					ChatbotMain.chatbot.startTalking();
 				}else if (ChatbotMain.findKeyword(response, secretWord, 0) >=0) {
 					ChatbotMain.print("Cool! You guessed my favorite thing ever. We are friends now.");		
-				}else {
+				}
+				else if(isShoot) {
+					giveRec(rShooters, response);
+				}
+				else if(isPlat) {
+
+				giveRec(rPlat, response);	
+				}
+				
+				else {
 
 					ChatbotMain.print("what");
 				}
