@@ -97,6 +97,7 @@ public class ChatbotFahad implements Topic {
 						if(ChatbotMain.findKeyword(response,fighting[i],0) >= 0) {
 							if(fighting[i].equals(botFighting)) {
 								ChatbotMain.print("Oh wow! We both love the same fighting game. That's amazing");
+								userFighting = response;
 							}
 							else {
 								ChatbotMain.print("Oh cool. I've heard of that one.");
@@ -128,6 +129,7 @@ public class ChatbotFahad implements Topic {
 						if(ChatbotMain.findKeyword(response,rolePlay[i],0) >= 0) {
 							if(rolePlay[i].equals(botRPG)) {
 								ChatbotMain.print("Oh wow! We both love the same RPG. That's amazing");
+								userFighting = response;
 							}
 							else {
 								ChatbotMain.print("Oh cool. I've heard of that one.");
