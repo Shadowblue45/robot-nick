@@ -8,7 +8,7 @@ public class ChatbotTyler implements Topic {
 	private String[] platform = {"platform", "platforming", "sidescroller", "platformer", "side scrolling","jeff dunham"};
 	private String[] rShooters = {"Doom", "Quake", "Call of Duty", "Halo", "Gears of War"};
 	private String[] rPlat = {"Super Mario Bros","Sonic the Hedgehog", "Rayman", "Super Meat Boy", "Cuphead","Duck Game"};
-	private String[] negativeWord = {"hate", "don't like", "don't love", "horrible"};
+	private String[] confused = {"I've never heard of that game, are you sure it's the right genre?", "Is that a game or not", "What???", "If that's a game thanks for telling me."};
 	private boolean chatting; 
 	private boolean isShoot = false;
 	private boolean isPlat = false;
@@ -38,6 +38,7 @@ public class ChatbotTyler implements Topic {
 	public void giveRec(String[] games , String response) {
 		int rec = 0;
 		int notFound = 0;
+		int confuse = 0;
 		for(int i = 0; i < games.length; i++)
 		{
 			
@@ -54,9 +55,16 @@ public class ChatbotTyler implements Topic {
 			{
 
 				rec = (int)(Math.random()*games.length);
-			
+
+				if(response == games[rec]) {
+				rec = (int)(Math.random()*games.length);
+	
+				}
+				else {
 				ChatbotMain.print("I like " + response + " too, you should check out " + games[rec]);
-				break;
+					
+				}
+					
 			}
 			if((ChatbotMain.findKeyword(response,games[i],0) == -1) )
 			{
@@ -64,8 +72,10 @@ public class ChatbotTyler implements Topic {
 				notFound++;
 
 			}
-			if(notFound == games.length)
-			ChatbotMain.print("I've never heard of that game, are you sure it's the right genre?");
+			if(notFound == games.length) {
+				confuse = (int)(Math.random()*confused.length);
+				ChatbotMain.print(confused[confuse]);
+			}
 		}
 		
 	}
