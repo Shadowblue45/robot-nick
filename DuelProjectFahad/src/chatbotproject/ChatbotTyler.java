@@ -37,8 +37,7 @@ public class ChatbotTyler implements Topic {
 
 	public void giveRec(String[] games , String response) {
 		int rec = 0;
-		int notfound = 0;
-		int found = 0;
+		int notFound = 0;
 		for(int i = 0; i < games.length; i++)
 		{
 			
@@ -53,15 +52,20 @@ public class ChatbotTyler implements Topic {
 			
 			if(ChatbotMain.findKeyword(response,games[i],0) >= 0) 
 			{
-				found++;
+
 				rec = (int)(Math.random()*games.length);
-				
+			
 				ChatbotMain.print("I like " + response + " too, you should check out " + games[rec]);
+				break;
 			}
-			else {
-			ChatbotMain.print("what"); 
-			break;
-			}		
+			if((ChatbotMain.findKeyword(response,games[i],0) == -1) )
+			{
+				
+				notFound++;
+
+			}
+			if(notFound == games.length)
+			ChatbotMain.print("I've never heard of that game, are you sure it's the right genre?");
 		}
 		
 	}
