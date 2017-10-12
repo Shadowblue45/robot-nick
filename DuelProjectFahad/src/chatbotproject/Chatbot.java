@@ -19,6 +19,14 @@ public class Chatbot {
 			userName = "unknown user";
 		}
 		
+		public Topic getChatbotFahad() {
+			return fahad;
+		}
+		
+		public Topic getChatbotDavid() {
+			return david;
+		}
+		
 		public void startTalking() {
 			ChatbotMain.print("Welcome to Gamebot-nick, the bot dedicated to video games. What is your name?");
 			userName = ChatbotMain.getInput();
@@ -45,17 +53,23 @@ public class Chatbot {
 					tyler.startChatting(response);
 				}
 				else if(previousResponse.equals(response)) {
-					if(botFrustration <= 3) {
+					if(botFrustration <= 2) {
 						ChatbotMain.print("Sorry, you already said that.");
 					}
-					if(botFrustration > 3 && botFrustration <= 6) {
+					if(botFrustration > 2 && botFrustration <= 4) {
 						ChatbotMain.print("You keep repeating yourself.");
 					}
-					if(botFrustration > 6 && botFrustration <= 9) {
+					if(botFrustration > 4 && botFrustration <= 6) {
 						ChatbotMain.print("Can you stop reapeating yourself already?");
 					}
-					if(botFrustration > 9) {
+					if(botFrustration > 6 && botFrustration <= 8) {
 						ChatbotMain.print("STOP REPEATING YOURSELF!!!");
+					}
+					if(botFrustration > 8) {
+						ChatbotMain.print("I'VE HAD ENOUGH!!! GOODBYE FOREVER!!!");
+					}
+					while(botFrustration > 8) {
+						
 					}
 					botFrustration++;
 				}

@@ -1,6 +1,6 @@
 package chatbotproject;
 
-public class ChatbotFahad implements Topic {
+public class ChatbotFahad implements Topic  {
 
 	private boolean round = true;
 	private boolean fRound = true;
@@ -72,7 +72,11 @@ public class ChatbotFahad implements Topic {
 		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
-			if(ChatbotMain.findKeyword(response,goodbyeWords,0) >= 0) {
+			if(ChatbotMain.chatbot.getChatbotDavid().isTriggered(response)) {
+				chatting = false;
+				ChatbotMain.chatbot.getChatbotDavid().startChatting(response);
+			}
+			else if(ChatbotMain.findKeyword(response,goodbyeWords,0) >= 0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
 			}
@@ -129,11 +133,11 @@ public class ChatbotFahad implements Topic {
 						if(ChatbotMain.findKeyword(response,rolePlay[i],0) >= 0) {
 							if(rolePlay[i].equals(botRPG)) {
 								ChatbotMain.print("Oh wow! We both love the same RPG. That's amazing");
-								userFighting = response;
+								userRPG = response;
 							}
 							else {
 								ChatbotMain.print("Oh cool. I've heard of that one.");
-								userFighting = response;
+								userRPG = response;
 							}
 						}
 						rRound = false;
