@@ -169,7 +169,18 @@ public class ChatbotDavid implements Topic {
 							
 					}
 				if(unknownMobaGames[3] != null)
-					ChatbotMain.print("Sorry, I can't remember so many new games!");
+					ChatbotMain.print("Sorry, I can't remember so many new games! Would you like to talk about fighters or RPGs?");
+				response = ChatbotMain.getInput();
+				if(response.equals("yes") || response.equals("sure") || response.equals("ok")) {
+					ChatbotMain.print("Fighters or RPGs?");
+					response = ChatbotMain.getInput();
+					Topic fahad = ChatbotMain.chatbot.getChatbotFahad();
+						if(fahad.isTriggered(response)) {
+							chatting = false;
+							fahad.startChatting(response);
+						}	
+				}
+					
 				return;
 		}
 	}
