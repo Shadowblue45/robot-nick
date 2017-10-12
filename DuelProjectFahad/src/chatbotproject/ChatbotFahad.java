@@ -25,7 +25,7 @@ public class ChatbotFahad implements Topic {
 		keywords = temp;
 		String temp2 ="stop";
 		goodbyeWords = temp2;
-		secretWord = "pug";
+		secretWord = "Destiny";
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public class ChatbotFahad implements Topic {
 				ChatbotMain.chatbot.startTalking();
 			}
 			else if(ChatbotMain.findKeyword(response, secretWord,0) >= 0) {
-				ChatbotMain.print("Oh my goodness! you guessed my favorite thing ever!");
+				ChatbotMain.print("Yes! That is my favorite game to play with friends. I love pwning all the n00bs in PvP.");
 			}
 			else if(fight && fRound) {	
 				for(int i = 0; i < fighting.length;i++){
