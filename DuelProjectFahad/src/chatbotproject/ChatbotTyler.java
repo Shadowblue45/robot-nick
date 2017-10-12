@@ -51,7 +51,13 @@ public class ChatbotTyler implements Topic {
 				ChatbotMain.print("Hey! You're supposed to tell me a game you like not hate!");
 			} */
 			
-			if(ChatbotMain.findKeyword(response,games[i],0) >= 0) 
+			if(ChatbotMain.findKeyword(response,"hate",0) >= 0) 
+			{
+				
+				ChatbotMain.print("Hey! I ask for a game you liked, not one you hate!");
+				break;
+			}
+			else if(ChatbotMain.findKeyword(response,games[i],0) >= 0) 
 			{
 
 				rec = (int)(Math.random()*games.length);
