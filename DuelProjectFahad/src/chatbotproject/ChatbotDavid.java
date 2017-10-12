@@ -22,8 +22,8 @@ public class ChatbotDavid implements Topic {
 	private boolean wasLearnedMoba0 = false;
 	
 	public ChatbotDavid() {
-		String[] temp2 = {"lol","smite","awesomenauts","dota","heros of the storm","league of legends"};
-		String[] temp3 = {"minecraft","terraria","gmod","gta","no man's sky","garrys mod","garry's mod"};
+		String[] temp2 = {"lol","smite","awesomenauts","dota","hos"};
+		String[] temp3 = {"minecraft","terraria","gmod","gta","nms","garrys mod","garry's mod"};
 		String[] temp = {"mobas","moba","sandboxes","sand-boxes","sandbox","sand-box"};
 		keywords = temp;
 		Mobas = temp2;
