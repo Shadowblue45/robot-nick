@@ -24,7 +24,7 @@ public class Chatbot {
 		}
 		
 		public Topic getChatbotDavid() {
-			return fahad;
+			return david;
 		}
 		
 		public void startTalking() {
