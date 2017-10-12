@@ -58,7 +58,7 @@ public class ChatbotTyler implements Topic {
 					ChatbotMain.print("I like " + response + " too, you should check out " + games[rec]);			
 				}
 			}
-			 else if(response.toLowerCase().contains("hate")) {
+			 else if(response.toLowerCase().contains("hate") || (response.toLowerCase().contains("don't like")) || (response.toLowerCase().contains("stinks"))){
 				    game = splitData[splitData.length - 1];
 	            }
 	            if (!game.isEmpty()) {
