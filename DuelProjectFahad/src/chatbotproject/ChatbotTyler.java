@@ -9,6 +9,7 @@ public class ChatbotTyler implements Topic {
 	private String[] rShooters = {"Doom", "Quake", "Call of Duty", "Halo", "Gears of War"};
 	private String[] rPlat = {"Super Mario Bros","Sonic the Hedgehog", "Rayman", "Super Meat Boy", "Cuphead","Duck Game"};
 	private String[] confused = {"I've never heard of that game, are you sure it's the right genre?", "Is that a game or not", "What???", "If that's a game thanks for telling me."};
+	private String[] hate = {"Hey I asked you to tell me a game you like, not hate!", "I think you misunderstood the question! Tell me a game you like.", "Please don't tell me a game you hate!"};
 	private boolean chatting; 
 	private boolean isShoot = false;
 	private boolean isPlat = false;
@@ -39,52 +40,52 @@ public class ChatbotTyler implements Topic {
 		int rec = 0;
 		int notFound = 0;
 		int confuse = 0;
+		int hatte = 0;
 		for(int i = 0; i < games.length; i++)
 		{
 			
-/*			if(ChatbotMain.findKeyword(response, "hate " , 0) >=0 || ChatbotMain.findKeyword(response, "bad", 0) >=0)
-			{
-				hate++;
-				
-			}	
-			if( hate == games.length) {
-				ChatbotMain.print("Hey! You're supposed to tell me a game you like not hate!");
-			} */
-			
-			if(ChatbotMain.findKeyword(response,"hate",0) >= 0) 
-			{
-				
-				ChatbotMain.print("Hey! I ask for a game you liked, not one you hate!");
-				break;
-			}
-			else if(ChatbotMain.findKeyword(response,games[i],0) >= 0) 
+			String game = "";
+			final String[] splitData = response.split(" ");
+
+			 if(ChatbotMain.findKeyword(response,games[i],0) >= 0) 
 			{
 
 				rec = (int)(Math.random()*games.length);
-
 				if(response == games[rec]) {
-				rec = (int)(Math.random()*games.length);
-	
-				}
-				else {
-				ChatbotMain.print("I like " + response + " too, you should check out " + games[rec]);
-					
-				}
-					
-			}
-			if((ChatbotMain.findKeyword(response,games[i],0) == -1) )
-			{
-				
-				notFound++;
-
-			}
-			if(notFound == games.length) {
-				confuse = (int)(Math.random()*confused.length);
-				ChatbotMain.print(confused[confuse]);
-			}
-		}
+					rec = (int)(Math.random()*games.length);
 		
-	}
+					}
+					else {
+					ChatbotMain.print("I like " + response + " too, you should check out " + games[rec]);
+						
+					}
+			}
+			 else if(response.toLowerCase().contains("hate")) {
+				    game = splitData[splitData.length - 1];
+	            }
+	            if (!game.isEmpty()) {
+	            	hatte = (int)(Math.random()*hate.length);
+	            	ChatbotMain.print(hate[hatte]);
+	                break;
+	            }
+	    		if((ChatbotMain.findKeyword(response,games[i],0) == -1) )
+	    		{
+	    			
+	    			notFound++;
+
+	    		}
+	    		if(notFound == games.length) {
+	    			confuse = (int)(Math.random()*confused.length);
+	    			ChatbotMain.print(confused[confuse]);
+	    		}
+			
+					
+			}
+		
+
+		
+	}	
+	
 	 
 	public void startChatting(String response) {
 		if (isShoot) {
