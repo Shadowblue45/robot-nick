@@ -49,16 +49,14 @@ public class ChatbotTyler implements Topic {
 
 			 if(ChatbotMain.findKeyword(response,games[i],0) >= 0) 
 			{
-
 				rec = (int)(Math.random()*games.length);
 				if(response == games[rec]) {
 					rec = (int)(Math.random()*games.length);
-		
-					}
-					else {
-					ChatbotMain.print("I like " + response + " too, you should check out " + games[rec]);
-						
-					}
+				}
+				else 
+				{
+					ChatbotMain.print("I like " + response + " too, you should check out " + games[rec]);			
+				}
 			}
 			 else if(response.toLowerCase().contains("hate")) {
 				    game = splitData[splitData.length - 1];
@@ -68,13 +66,12 @@ public class ChatbotTyler implements Topic {
 	            	ChatbotMain.print(hate[hatte]);
 	                break;
 	            }
-	    		if((ChatbotMain.findKeyword(response,games[i],0) == -1) )
-	    		{
+	    	if((ChatbotMain.findKeyword(response,games[i],0) == -1) )		{
 	    			
 	    			notFound++;
 
 	    		}
-	    		if(notFound == games.length) {
+	    	if(notFound == games.length) {
 	    			confuse = (int)(Math.random()*confused.length);
 	    			ChatbotMain.print(confused[confuse]);
 	    		}
