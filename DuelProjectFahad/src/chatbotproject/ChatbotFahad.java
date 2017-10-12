@@ -25,7 +25,7 @@ public class ChatbotFahad implements Topic {
 		keywords = temp;
 		String temp2 ="stop";
 		goodbyeWords = temp2;
-		secretWord = "Destiny";
+		secretWord = "moba";
 	}
 
 	@Override
@@ -72,6 +72,10 @@ public class ChatbotFahad implements Topic {
 		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
+			if(getChatbotDavid().isTriggered(response)) {
+				chatting = false;
+				getChatbotDavid().startChatting(response);
+			}
 			if(ChatbotMain.findKeyword(response,goodbyeWords,0) >= 0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
