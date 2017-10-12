@@ -137,6 +137,23 @@ public class ChatbotDavid implements Topic {
 				{
 					if(Sandboxes[h].contains(response)){
 						ChatbotMain.print("Hey! " + response + " is a sandbox!");
+						ChatbotMain.print("Sorry, I can't remember so many new games! Would you like to talk about fighters or RPGs?");
+						response = ChatbotMain.getInput();
+						if(response.equals("yes") || response.equals("sure") || response.equals("ok")) {
+							ChatbotMain.print("Fighters or RPGs?");
+							response = ChatbotMain.getInput();
+							Topic fahad = ChatbotMain.chatbot.getChatbotFahad();
+								if(fahad.isTriggered(response)) {
+									chatting = false;
+									fahad.startChatting(response);
+								}	
+								else if(response.equals("fighters") || response.equals("rpgs")) {
+									chatting = false;
+									fahad.startChatting(response);
+								}
+								else {
+									ChatbotMain.print("What is you're favorite Sandbox game?");
+								}
 						return;
 					}
 				}
@@ -179,11 +196,19 @@ public class ChatbotDavid implements Topic {
 							chatting = false;
 							fahad.startChatting(response);
 						}	
+						else if(response.equals("fighters") || response.equals("rpgs")) {
+							chatting = false;
+							fahad.startChatting(response);
+						}
+						else {
+							ChatbotMain.print("What is you're favorite Moba?");
+						}
 				}
 					
 				return;
 		}
 	}
+}
 	
 	private void notWasLearnedSandbox(int num) {
 		if(num == 0)
