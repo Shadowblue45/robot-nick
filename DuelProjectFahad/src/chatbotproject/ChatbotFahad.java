@@ -103,6 +103,11 @@ public class ChatbotFahad implements Topic {
 								userFighting = response;
 							}
 						}
+						else {
+							ChatbotMain.print("I didn't know that was a fighting game!");
+							userFighting = response;
+							return;
+						}
 						fRound = false;
 					}
 				}
@@ -133,6 +138,11 @@ public class ChatbotFahad implements Topic {
 								ChatbotMain.print("Oh cool. I've heard of that one.");
 								userFighting = response;
 							}
+						}
+						else {
+							ChatbotMain.print("I didn't know that was a fighting game!");
+							userFighting = response;
+							return;
 						}
 						rRound = false;
 					}

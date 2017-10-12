@@ -8,6 +8,8 @@ public class Chatbot {
 		private Topic david;
 		private boolean chatting;
 		private boolean first = true;
+		private String previousResponse = "";
+		private int botFrustration = 0;
 		
 		
 		public Chatbot() {
@@ -42,9 +44,25 @@ public class Chatbot {
 					chatting = false;
 					tyler.startChatting(response);
 				}
+				else if(previousResponse.equals(response)) {
+					if(botFrustration <= 3) {
+						ChatbotMain.print("Sorry, you already said that.");
+					}
+					if(botFrustration > 3 && botFrustration <= 6) {
+						ChatbotMain.print("You keep repeating yourself.");
+					}
+					if(botFrustration > 6 && botFrustration <= 9) {
+						ChatbotMain.print("Can you stop reapeating yourself already?");
+					}
+					if(botFrustration > 9) {
+						ChatbotMain.print("STOP REPEATING YOURSELF!!!");
+					}
+					botFrustration++;
+				}
 				else {
 					ChatbotMain.print("I'm sorry. I dont understand what you are talking about?");
 				}
+				previousResponse = response;
 			}
 		}
 }
