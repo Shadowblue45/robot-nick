@@ -14,7 +14,7 @@ public class ChatbotTyler implements Topic {
 	private boolean isShoot = false;
 	private boolean isPlat = false;
 	public ChatbotTyler() {
-		goodbyewords = "jeff";
+		goodbyewords = "bye";
 		secretWord = "doge";
 
 	}
